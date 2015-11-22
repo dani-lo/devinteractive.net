@@ -1,0 +1,83 @@
+[
+	{
+		"title": "O2 Rugby World Cup Campaign",
+		"client": "O2",
+		"description": ["VCCP campaign for O2 to promote their rugby world campaigns #WearTheRose and Make Them Giant, aimed at supporting the National rugby team.", "Users use the Avatar creator to setup their own character within the support wall, or can watch video relating to the Make them Giants campaign, and are offered several other interactive choices to show their support"],
+		"tech": "Backbone, Underscore, Grunt, Bower, Css3, responsive, Git",
+		"company": "VCCP",
+		"url": "http://www.o2.co.uk/sponsorship/rugby/wear-the-rose",
+		"images":2
+	},
+	{
+		"title": "Audience Trading Platform - Trader Tool",
+		"client": "ATP",
+		"description": ["Trader allows agencies to individually identify a specific audience and target them with campaigns creative across display, mobile, social, native, and tv channels. This programmatic execution allows a brand to buy against customers instead of ad placements.", "Using real-time bidding strategies and algorithmic optimisation, Trader ensures that your campaign is delivered with the maximum possible cost-efficiency."],
+		"tech": "Backbone, RequireJS, Underscore, d3, Moment, Svg, Grunt, Bower",
+		"company": "ATP",
+		"url": "https://atp.io/trader/",
+		"images":5
+	},
+	{
+		"title": "Audience Trading Platform - Attributer Tool",
+		"client": "ATP",
+		"description": ["Attributer stitches together all of your brand’s interactions with a customer so that you can optimise the customer journey, not just the last interaction.", "Using machine learning algorithms, Attributer learns from your data and creates a bespoke attribution model based on how each interaction affects customer behaviour."],
+		"tech": "Backbone, RequireJS, Underscore, d3, Moment, Svg, Grunt, Bower",
+		"company": "ATP",
+		"url": "https://atp.io/trader/",
+		"images":7
+	},
+	{
+		"title": "Audience Trading Platform - Profiler Tool",
+		"client": "ATP",
+		"description": ["Profiler brings together 1st party data and a host of 3rd party data sources to show you what your customers really look like, including demographic, behavioural, and psychographic attributes.", "Using Profiler you can explore which data segments would be most valuable for a particular campaign goal by looking at the segments which have historically been most predictive of that goal behaviour."],
+		"tech": "Backbone, d3, JQuery, Jquery UI, Svg, Grunt, Bower",
+		"company": "ATP",
+		"url": "https://atp.io/profiler/",
+		"images":3
+	},
+	{
+		"title": "Hiscox Frontend Rebuild",
+		"client": "Hiscox",
+		"description": ["Bootstrap rewrite of Hiscox frontend for their German site, implementing user friendly strategies and a highly responsive approach"],
+		"tech": "Bootstrap, Git, Grunt, Bower, Html5",
+		"company": "VCCP",
+		"url": null,
+		"images":2
+	},
+	{
+		"title": "waitrose.com",
+		"client": "waitrose",
+		"description": ["Redevelopment of the entire user interface for one of the UK top range supermarkets website (flagship, Waitrose), with focus on interactive elements to enhance customers online shopping experience, such as a highly dynamic shopping basket, a jotter to replicate buysers offline habits and several options for delivery management"],
+		"tech": "Backbone, RequireJS, Underscore, Mustache, Coffeescript, Sinatra, HAML, Vagrant",
+		"company": "Fullsix",
+		"url": "http://www.waitrose.com/",
+		"images":3
+	},
+	{
+		"title": "Tottenham Turfies",
+		"client": "Tottenham Hotspur FC",
+		"description": ["An online games suite for children, to help revitalise a top Premiership club fan base and help promote the club's image for friendliness to families. The games crucially are built around football concepts and common games, and allow users to develop an account and win competitions"],
+		"tech": "Jquery, HTML5, Canvas",
+		"company": "Hangar 7",
+		"url": "http://www.tottenhamturfies.com/turfies",
+		"images":2
+	},
+	{
+		"title": "NCP Map Search",
+		"client": "NCP",
+		"description": ["A map utility for NCP parking, ported to googlemap v3 api."],
+		"tech": "OO Javascript, Googlemaps api v3",
+		"company": "Group Tree",
+		"url": "http://www.ncp.co.uk/find-a-car-park",
+		"images":1
+	},
+	{
+		"title": "Butlins",
+		"client": "Butlins",
+		"description": ["Butlins holidays resorts flagship website"],
+		"tech": "Sass, Html5",
+		"company": "Grand Union",
+		"url": "http://www.butlins.com/",
+		"images":1
+	}
+]

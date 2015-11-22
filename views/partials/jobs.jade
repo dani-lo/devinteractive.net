@@ -1,0 +1,74 @@
+div(class="bg", devint-scroll-position)
+div(class="devint")
+	
+	header(id="devint-head", class="jobs-header menu-container", ng-class="{loaded: !isloading, isdone:isdone}", devint-affix)
+		div(class="menu-options", ng-class="{openmenu : menu, cmsactive: cmsactive}")
+			a(devint-suggest, class="optionsmenu optionsmenu-close devint-suggest", ng-click="hideMenu()")
+				i(class="fa fa-times")
+				span(data-orient="left", data-tip="close")
+			a(devint-suggest, class="optionsmenu optionsmenu-logout devint-suggest", ng-click="logout()")
+				i(class="fa fa-sign-out")
+				span(data-orient="right", data-tip="logout")
+			a(devint-suggest, class="optionsmenu optionsmenu-cms devint-suggest", ng-click="cms()")
+				i(class="fa fa-arrow-up")
+				span(data-orient="right", data-tip="cms")
+			div(class="cms")
+				div(class="container single-inst")
+					div(class="row")
+						//
+						div(class="col-md-3 di-col-xs-0 col-sm-2 col-lg-4")
+						div(class="col-md-6 di-col-xs-12 col-sm-8  col-lg-4 form-wrapper", ng-class="{isready: ready}")
+							div(class="local-login devint-form")
+								h2 Add User
+								form(name="loginlocal", method="POST", ng-submit="postLogin()")
+									input(type="email", name="email", ng-model="user.email", required, placeholder="Email")
+									input(type="password", name="password", ng-model="user.password", required, placeholder="Password")
+									input(type="submit", value="add user", class="button")
+						div(class="col-md-3 di-col-xs-0 col-sm-2 col-lg-4")
+		h1 devinteractive.net
+		a(devint-suggest, id="nav-back", class="devint-suggest", href="/app/home")
+			i(class="fa fa-arrow-circle-left")
+			span(data-orient="right", data-tip="go back")
+		a(devint-suggest, id="nav-menu", ng-click="showMenu()", class="devint-suggest")
+			i(class="fa fa-bars")
+			span(data-orient="left", data-tip="menu")
+		div(id="devint-loader", ng-show="isloading")
+			p(id="preloading-p") Preloading images...
+			div(class="img-preloader-monitor", devint-image-load)
+				div(id="img-load-prog")
+	section(class="intro")
+		div(class="section-wrapper")
+			div(class="container  job-intro")
+				div(class="row")
+					div(class="col-md-12")
+							p These are a few samples from some of the most recent contract work, meant to be used as a small portfolio. The images on this page are all genuine screenshots of online sites.
+							p The beauty of coding lies in simplicity and chosing the right approach for the job. In all these samples I tried to do just that, wheather as a solo dev or member of a talented team ...
+							//
+								p For some of these sites (/apps) I covered all of the frontend, from UI transitions to the mid tier wiring, either as a solo coder or part of small to medium teams. Bits of backend scripting too in case .. In other cases I was called in to just plug functionality on top of existing UI work, and other developers share the merit for a good final piece of coding work. In all of these cases I hopefully did help to deliver a top online experience
+	section(class="works body")
+		div(class="section-wrapper",  ng-class-odd="'alt'", data-ng-repeat="job in jobs")
+			div(class="container job-container", ng-class="{interloop: $index > 0 && $index % 3 === 0}")
+				div(class="work row")
+					h2(class="work-title") {{job.title}}
+					div(class="img-cont col-md-6", id="o2rwc-{{job.images}}", devint-image-caro, data-imgset="{{job.images}}",  data-imgbase="/img/{{job.alias}}/") 
+						img(src="img/topbar.png", class="topbar")
+						img(src="img/blank.png", class="grab p-o")
+						div(class="work-img-set")
+							img(src="img/{{job.alias}}/1.png", class="grab curr", id="img-{{job.alias}}")
+						p(class="browse-work rwd", ng-show="job.images > 1")
+							i(class="fa fa-angle-left browse", id="prev-{{job.alias}}-{{job.images}}")
+							i(class="fa fa-angle-right browse", id="next-{{job.alias}}-{{job.images}}")
+					div(class="work-tools col-md-6")
+						ul
+							li(class="about-desc")
+								i(class="fa fa-question switch-a-a")
+								p(class="about-work", ng-repeat="desc in job.description") {{desc}}
+								
+							li(class="about-tech")
+								i(class="fa fa-code switch-a-b")
+								p(class="about-work") {{job.tech}}
+							li(ng-show="job.url.length > 1", class="about-link")
+								i(class="fa fa-plus-square-o switch-a-c")
+								p(class="about-work")
+									a(href="{{job.url}}", target="_blank") See Online
+					div(class="cl")

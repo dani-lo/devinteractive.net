@@ -1,0 +1,36 @@
+body.start {
+	background-color: @color_red_app;
+    overflow: hidden;
+}
+
+div.start {
+    .centered_h(5%, 5%);
+    .abs_pos(auto, auto, auto, auto, 100%, auto, 123);
+}
+
+p.start{
+    .transit(all, .5s);
+    color: @color_grey_lightish;
+
+    padding-left: 5%;
+    text-align: center;
+    position: relative;
+    font-size: 12em;
+    
+    top: -600px;
+
+    span {
+        letter-spacing: 2px;
+    }
+
+    a {
+        color: @color_white;
+        padding: 0 60px;
+        .transit(color, .25s);
+        line-height: 1.6em;
+
+        &:hover {
+            color: @color_grey_mid;
+        }
+    }
+}

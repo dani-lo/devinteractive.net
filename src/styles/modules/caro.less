@@ -1,0 +1,31 @@
+p.browse-work {
+    .abs_pos(37%, 0, auto, auto , 100%, auto, 0);
+    .no_air();
+    
+    text-align: center;
+				
+    i {
+        background-color: @color_red_app;
+        .round(77px);
+        color: @color_white;
+        .fs_fixed_40;
+        .transit(opacity, .25s);
+        
+        cursor: pointer;
+        line-height: 70px;
+        border: 2px solid @color_pink;
+        margin: 4px;
+    
+        &:hover  {
+            background-color: @color_red_dim;
+            .scale(1.1);
+            .opaque(0.8, 80);
+            color:@color_black;
+        }
+        &:active  {
+            background-color: @color_red_dark;
+            .opaque(0.5, 50);
+            .scale(1.1);
+        }
+    }
+}

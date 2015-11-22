@@ -1,0 +1,35 @@
+.cms {
+    background: @color_red_app;
+    .abs_pos(auto, auto, 64px, auto, 100%, 100%, auto);
+    .opaque(0, 0);
+    .t_delay(1s);
+
+    display: none;
+    h2 {
+    	font-size: 3em;
+    	text-align: center;
+        margin-bottom: 22px;
+    }
+	.container {
+		background: @color_blue_light;
+		.no_border;
+		.no_air;
+		.abs_pos(auto, auto, 0, auto, auto, 100%, auto);
+		.row {
+			.form-wrapper {
+				.transit(all, .25s);
+				.t_delay(.5s);
+				.opaque(0, 0);
+				.devint-form {
+					padding: 90px 15px 25px 10px;
+					.button {
+						margin-top: 12px;
+					}
+				}
+			}
+		}
+	}
+}
+.cmsactive .cms .container .row .form-wrapper{
+	.opaque(1, 100);
+}

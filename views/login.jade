@@ -1,0 +1,28 @@
+extends layout
+
+block body
+	div(class="devint", ng-controller="AccountCtrl")
+		header(id="devint-head")
+			h1 devinteractive.net
+		div(class="start login")
+			div(class="container single-inst")
+				div(class="row")
+					//
+					div(class="col-md-3 di-col-xs-0 col-sm-2 col-lg-4")
+						//
+							img(class="dev-logo", src="img/logo.png")
+					div(class="col-md-6 di-col-xs-12 col-sm-8  col-lg-4 form-wrapper", ng-class="{isready: ready}")
+						div(class="local-login devint-form")
+							form(name="loginlocal", method="POST", ng-submit="postLogin()")
+								input(type="email", name="email", ng-model="user.email", required, placeholder="Email")
+								input(type="password", name="password", ng-model="user.password", required, placeholder="Password")
+								input(type="submit", value="login", class="button")
+						div(class="social-login devint-form")
+							a(class="btn btn-block btn-social btn-lg btn-github", href="/login/github")
+								i(class="fa fa-github") Sign in with Github
+					div(class="col-md-3 di-col-xs-0 col-sm-2 col-lg-4")
+	script(src='bower_components/jquery/dist/jquery.min.js')
+	script(src='bower_components/angular/angular.min.js')
+	script(src='bower_components/angular-route/angular-route.min.js')
+	script(src='bower_components/angular-modal-service/dst/angular-modal-service.js')
+	script(src='dist/js/devinteractive.min.js')

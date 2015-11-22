@@ -1,0 +1,30 @@
+a.devint-suggest {
+	span {
+		.abs_pos(5px, auto, auto, auto, auto, auto, 12);
+		.transit(all, .25s);
+		.opaque(0, 0);
+		.transit(all, .25s);
+
+	    color: @color_blue_darkest;
+	    background: @color_white;
+	    border: 3px solid @color_grey_dark;
+
+	    min-width: 153px;
+	    font-size: 21px;
+	    border-radius: 5px;
+	    padding: 10px;
+	    text-align: center;
+	    pointer-events: none;
+	    
+		&.orient-right {
+			left: 50px;
+		}
+		&.orient-left {
+			right: 45px;
+		}
+		&.d-reveal {
+			.opaque(1, 100);
+			top: 0px;
+		}
+	}
+}

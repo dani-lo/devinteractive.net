@@ -1,0 +1,51 @@
+.work-tools ul {
+
+    margin-top: -14px;
+    padding-top: 0;
+
+    li{
+        padding: 0 12px 30px 0;
+        display: block;
+        position: relative;
+        margin: 12px 0px;
+
+        &.about-desc {
+            background: @color_green_dark;
+        }
+
+        &.about-tech {
+            background: @color_grey_redded;
+        }
+
+        &.about-link {
+            background: @color_white;
+            border: 2px solid @color_black;
+            text-align: center;
+            padding: 0;
+
+            i {
+                color: @color_grey_dark;
+            }    
+            p {
+                padding: 5px;
+            }
+        }
+
+        i{
+            .abs_pos(9px, auto, auto, 8px, auto, auto, auto);
+            font-size: 3em;
+            color: @color_grey_lightest;
+        } 
+
+        a {
+            color: @color_red_dark;
+            .transit(all, .25s);
+            font-weight: bold;
+
+            &:hover, &:active{
+                color: @color_grey_darkest;    
+            } 
+        } 
+    }
+
+}

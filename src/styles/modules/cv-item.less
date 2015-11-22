@@ -1,0 +1,48 @@
+.pos-item {
+	border: 1px solid @color_grey_light;
+	.box_shadow;
+	.transit(all, 0.5s);
+	.scale(0.75);
+	background: @color_white;
+	.floated(left, 48.9%);
+
+	margin: 0.5%;
+	height: 280px;
+
+    &.zoom {
+    	.scale(1);
+    }
+
+    h2 {
+        background: @color_transp;
+	    color: @color_red_dark;
+	    font-size: 3em;
+	    padding: 30px 0 20px;
+    }
+    h3 {
+        background: @color_transp;
+	    font-size: 2em;
+	    color: #8A8B8A;
+	    line-height: 34px;
+	    padding-bottom: 20px;
+    }
+    h4 {
+    	font-size: 1.4em;
+    }
+    p.description {
+        background: @color_transp;
+        font-size: 1em;
+    }
+    p.date {
+        background: @color_transp;
+        font-size: 1em;
+    }
+    a.plus-pos {
+    	.abs_pos(20px, 20px, auto, auto, 50px, auto, auto);
+
+	    font-size: 50px;
+	    &:hover {
+	    	.scale(1.1);
+	    }
+    }
+}

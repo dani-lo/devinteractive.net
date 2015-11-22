@@ -1,0 +1,297 @@
+{
+	"cname": "VCCP, London",
+	"cdesc" : "A large London based digital agency",
+	"description": [
+		"Worked on VCCP campaign for O2 to promote rugby world campaigns #WearTheRose and Make Them Giant, aimed at supporting the National rugby team. Backbone, responsive, OO javascript develpment for a video wall and other components within the O2 Make Them Giant website / app.",
+		"Bootstrap development as part of a team for a highly responsive rewrite of Hiscox new German website frontend"
+	],
+	"date" : "September 2015 ­- October 2015",
+	"tech": "Backbone, Grunt, Bootstrap, html5, responsive, Sass, Git",
+	"title": "UI developer",
+	"urls": [
+		{"l":"http://www.o2.co.uk/sponsorship/rugby/wear-the-rose"},
+		{"w":"Images for the Hiscox rewrite job available at https://devinteractive.herokuapp.com (pending backend implementation)"}
+	]
+
+},
+
+
+
+
+
+
+
+
+
+
+{
+	"cname": "ATP, London",
+	"cdesc" : "A software platform led company that helps improve the return on media investment significantly by identifying and targeting audiences and continuously optimising marketing campaigns using bespoke algorithms and software tools",
+	"description": [
+		"Development of ATP's flagship online data mining tools, Attributer and Trader, by building on the one page app paradigm and interfacing with a complex backend via a set of RESTful apis to output various sets of data in charted and tabular formats. Co-developed ATP's ground breaking Profiler tool, a charting utility targeting demographic, behavioural, and psychographic attributes of online users based on campaigns tracking"
+	],
+	"date" : "",
+	"tech": "Backbone, RequireJS, Underscore, d3, Moment, Svg, Grunt, Bower, Less",
+	"title": "UI developer",
+	"urls": [
+		{"l": "https://attributer.atp.io/"},
+		{"l": "https://trader.atp.io/"},
+		{"l": "https://profiler.atp.io/"}
+	]
+
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+	"cname": "Hangar 7, London",
+	"cdesc" : "Hangar Seven is a leader in the planning, creation, production and distribution of powerful Content that changes consumer opinion, stimulates consumer interaction and drives retail footfall and sales.",
+	"description": [
+		"Worked on Hangar 7 online game suite for children 'Tottenham Turfies' redeveloping Ajax routines and UI flows, bringing the project to delivery"
+	],
+	"date" : "May 2013 ­- June 2013",
+	"tech": "Jquery, HTML5, Canvas",
+	"title": "UI developer",
+	"urls": [
+		{"l": "http://www.tottenhamturfies.com/turfies"}
+	]
+},
+
+
+
+
+
+
+{
+	"cname": "Grand Union, London",
+	"cdesc" : "A digital agency based in Central London specialising in UX and frontend development.",
+	"description": [
+		"Redevelopment of the entire user interface for one of the UK top range supermarkets website (flagship site), Waitrose, with focus on groundbreaking interactive elements to enhance customers online shopping experience. The project was managed in a loose Agile format with daily scrums"
+	],
+	"date" : "December 2012 ­- April 2013",
+	"tech": "Backbone, RequireJS, Underscore, Mustache Coffeescript, Sinatra (backend mockups), HAML, Vagrant",
+	"title": "Javascript developer",
+	"urls": [
+		{"l": "http://waitrose.com"},
+		{"l": "http://thegrandunion.com"}
+	]
+},
+
+
+
+
+
+
+{
+	"cname": "Fullsix, London",
+	"cdesc" : "A digital agency based in Central London specialising in UX and frontend development.",
+	"description": [
+		"Developed a pilot html5 Javascript application for Sainsburys, Christmas recipes, in close collaboration with an Umbraco .NET developer. The application is Umbraco cms driven, and structured as a large 'single page ajax application'. Followed the project from technical specification to support for UX and design specifications and eventually development and bakend integration. The pilot proved very successful and has been used for other Sainsburys recipes applications."
+	],
+	"date" : "October ­2012 - November 2012",
+	"tech": "Backbone, RequireJS, Underscore, Css3 animations, Jquery, interfacing to Umbraco API",
+	"title": "html5 developer",
+	"urls": [
+		{"l": "http://sainsburysatchristmas.com"},
+		{"l": "http://sainsburysrecipes.co.uk"},
+		{"l": "http://www.group.fullsix.com"}
+	]
+},
+
+
+
+
+
+
+{
+	"cname": "Grand Union, London",
+	"cdesc" : "A digital agency based in Central London specialising in UX and frontend development.",
+	"description": [
+		"Worked on Butlins UK website rebuild (all frontend, backend developed by third party) as part of the frontend team. Developed the javascript interactive application 'Interactive Resort Guide' for the new Butlins website: ­ a highly interactive 'one page' js application based on drag navigation and background images animation."
+	],
+	"date" : "July ­2012 - September 2012",
+	"tech": "Modernizr, RequireJS, Underscore, Css3 animations, Jquery, Youtube js api",
+	"title": "Javascript developer",
+	"urls": [
+		{"l": "http://butlins.com"},
+		{"l": "http://www.butlins.com/interactive­resort­guide/"}
+	]
+},
+
+
+
+
+
+
+
+{
+	"cname": "Grouptree, London",
+	"cdesc" : "A privately owned software development company based in central London specialising in the development of object oriented software solutions designed to manage digital assets.",
+	"description": [
+		"Javascript development work to port a large web map application to version 3 of the googlemaps api. Refactoring to object oriented architecture (custom mvc, namespacing, abstraction) of a very large procedural code repository"
+	],
+	"date" : "June ­2012 - July 2012",
+	"tech": "OO Javascript, Google Maps api v3, Visual Studio",
+	"title": "Javascript developer",
+	"urls": [
+		{"l": "http://www.ncp.co.uk/"},
+		{"l": "http://www.grouptree.com/"}
+	]
+
+},
+
+
+
+
+
+
+
+
+{
+	"cname": "Rehabstudio, London",
+	"cdesc" : "A young and vibrant digital agency based in East London",
+	"description": [
+		"OO Javascript, HTML5 development for a locally hosted (no public URL access) photoboot app running on Chrome api features for their Google account. The final app was custom installed at major worldwide (i.e. Champions LEague finals in Munich) events 'in situ' to promote google+"
+	],
+	"date" : "April ­2012 - May 2012",
+	"tech": "OO javascript, Tweening, Springboard mvc, Custom ajax stream api, Chrome­-only FS api",
+	"title": "Javascript HTML5 developer",
+	"urls": [
+		{"w": "No public URLs available (custom installed at public facing events)"}
+	]
+
+},
+
+
+
+
+
+
+
+
+
+
+
+{
+	"cname": "Capablue, London",
+	"cdesc" : "One of the UK’s leading Video­ on­ Demand (VoD) and Connected TV solutions provider",
+	"description": [
+		"Tech Lead of small London based frontend team within the Capablue development team, focused on building applications for a new set­-top box UI using frontend web technology. Work with (and on) an advanced custom OO javascript library interfacing with lower level of the box RMAI. Liasing with end client (Software Development company) on all development matters, including enhancements to the RMAI and javascript libraries.",
+		"Xhtml and css work (including css3 transitions and custom transitions) within a custom browser environment (ANT port of Galio browser). Unix routine work for interfacing with the test boxes, compiling and testing."
+	],
+	"date" : "Sep 2011 - Jan 2012",
+	"tech": "OO Javascript, Galio, Css3, Unix",
+	"title": "Javascript Team Lead",
+	"urls": [
+		{"w": "No public URL available (STB UI Application)"},
+		{"l": "http://capablue.com/"}
+	]
+
+},
+
+
+
+
+
+
+
+
+
+
+{
+	"cname": "The App Business",
+	"cdesc" : "The App Business is a team of specialists dedicated to creating effective app strategy and ideas, and to developing high quality apps and web services.",
+	"description": [
+		"Short contract at The App Business – front end development, thml css and javascript (custom development) with focus on web application mobile­ specific compatibility and optimization for a project for their Dove account. OO Javascript, CSS3"
+	],
+	"date" : "August 2011",
+	"tech": "OO Javascript, CSS3, Media Queries",
+	"title": "UI Developer",
+	"urls": [
+		{"l": "http://apps.facebook.com/dovebodylanguage/?ref=ts"},
+		{"l": "http://46.137.189.180/dove/?page=viewer&message=aGVsbG8gd29ybGQ"}
+	]
+
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+	"cname": "",
+	"cdesc" : "",
+	"description": [
+		"",
+		""
+	],
+	"date" : "",
+	"tech": "",
+	"title": "",
+	"urls": [
+		"",
+		""
+	]
+
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+	"cname": "",
+	"cdesc" : "",
+	"description": [
+		"",
+		""
+	],
+	"date" : "",
+	"tech": "",
+	"title": "",
+	"urls": [
+		"",
+		""
+	]
+
+},
+
+
+
+
+
+
+

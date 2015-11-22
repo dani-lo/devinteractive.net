@@ -1,0 +1,175 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'angular-touch' ]
+2 info using npm@3.3.6
+3 info using node@v4.0.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData angular-touch
+8 silly fetchNamedPackageData angular-touch
+9 silly mapToRegistry name angular-touch
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/angular-touch
+13 verbose request uri https://registry.npmjs.org/angular-touch
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 5:26:20 PM
+16 verbose request id a01e5f70e7cfbe9b
+17 verbose etag "9PFIS6NYA1ERPRD3NOTYPE787"
+18 http request GET https://registry.npmjs.org/angular-touch
+19 http 200 https://registry.npmjs.org/angular-touch
+20 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+20 verbose headers   etag: '"CEOCIG33K9E88BW9COZM8Y71S"',
+20 verbose headers   'content-type': 'application/json',
+20 verbose headers   'cache-control': 'max-age=60',
+20 verbose headers   'content-length': '54059',
+20 verbose headers   'accept-ranges': 'bytes',
+20 verbose headers   date: 'Tue, 03 Nov 2015 17:26:21 GMT',
+20 verbose headers   via: '1.1 varnish',
+20 verbose headers   age: '0',
+20 verbose headers   connection: 'keep-alive',
+20 verbose headers   'x-served-by': 'cache-lhr6327-LHR',
+20 verbose headers   'x-cache': 'HIT',
+20 verbose headers   'x-cache-hits': '1',
+20 verbose headers   'x-timer': 'S1446571580.870033,VS0,VE156',
+20 verbose headers   vary: 'Accept' }
+21 silly get cb [ 200,
+21 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+21 silly get     etag: '"CEOCIG33K9E88BW9COZM8Y71S"',
+21 silly get     'content-type': 'application/json',
+21 silly get     'cache-control': 'max-age=60',
+21 silly get     'content-length': '54059',
+21 silly get     'accept-ranges': 'bytes',
+21 silly get     date: 'Tue, 03 Nov 2015 17:26:21 GMT',
+21 silly get     via: '1.1 varnish',
+21 silly get     age: '0',
+21 silly get     connection: 'keep-alive',
+21 silly get     'x-served-by': 'cache-lhr6327-LHR',
+21 silly get     'x-cache': 'HIT',
+21 silly get     'x-cache-hits': '1',
+21 silly get     'x-timer': 'S1446571580.870033,VS0,VE156',
+21 silly get     vary: 'Accept' } ]
+22 verbose get saving angular-touch to /Users/dani/.npm/registry.npmjs.org/angular-touch/.cache.json
+23 silly install normalizeTree
+24 silly loadCurrentTree Finishing
+25 silly loadIdealTree Starting
+26 silly install loadIdealTree
+27 silly cloneCurrentTree Starting
+28 silly install cloneCurrentTreeToIdealTree
+29 silly cloneCurrentTree Finishing
+30 silly loadShrinkwrap Starting
+31 silly install loadShrinkwrap
+32 silly loadShrinkwrap Finishing
+33 silly loadAllDepsIntoIdealTree Starting
+34 silly install loadAllDepsIntoIdealTree
+35 silly resolveWithNewModule angular-touch@1.4.7 checking installable status
+36 silly cache add args [ 'angular-touch', null ]
+37 verbose cache add spec angular-touch
+38 silly cache add parsed spec Result {
+38 silly cache add   raw: 'angular-touch',
+38 silly cache add   scope: null,
+38 silly cache add   name: 'angular-touch',
+38 silly cache add   rawSpec: '',
+38 silly cache add   spec: '*',
+38 silly cache add   type: 'range' }
+39 silly addNamed angular-touch@*
+40 verbose addNamed "*" is a valid semver range for angular-touch
+41 silly addNameRange { name: 'angular-touch', range: '*', hasData: false }
+42 silly mapToRegistry name angular-touch
+43 silly mapToRegistry using default registry
+44 silly mapToRegistry registry https://registry.npmjs.org/
+45 silly mapToRegistry uri https://registry.npmjs.org/angular-touch
+46 verbose addNameRange registry:https://registry.npmjs.org/angular-touch not in flight; fetching
+47 verbose get https://registry.npmjs.org/angular-touch not expired, no request
+48 silly addNameRange number 2 { name: 'angular-touch', range: '*', hasData: true }
+49 silly addNameRange versions [ 'angular-touch',
+49 silly addNameRange   [ '1.3.0-rc.5',
+49 silly addNameRange     '1.3.0',
+49 silly addNameRange     '1.3.1',
+49 silly addNameRange     '1.3.2',
+49 silly addNameRange     '1.3.3',
+49 silly addNameRange     '1.3.4-build.3587',
+49 silly addNameRange     '1.2.27',
+49 silly addNameRange     '1.3.4',
+49 silly addNameRange     '1.3.5',
+49 silly addNameRange     '1.3.6',
+49 silly addNameRange     '1.3.7',
+49 silly addNameRange     '1.2.28',
+49 silly addNameRange     '1.3.8',
+49 silly addNameRange     '1.4.0-beta.0',
+49 silly addNameRange     '1.3.9',
+49 silly addNameRange     '1.3.10',
+49 silly addNameRange     '1.4.0-beta.1',
+49 silly addNameRange     '1.4.0-beta.2',
+49 silly addNameRange     '1.3.11',
+49 silly addNameRange     '1.4.0-beta.3',
+49 silly addNameRange     '1.3.12',
+49 silly addNameRange     '1.3.13',
+49 silly addNameRange     '1.4.0-beta.4',
+49 silly addNameRange     '1.3.14',
+49 silly addNameRange     '1.4.0-beta.5',
+49 silly addNameRange     '1.4.0-beta.6',
+49 silly addNameRange     '1.3.15',
+49 silly addNameRange     '1.4.0-rc.0',
+49 silly addNameRange     '1.4.0-rc.1',
+49 silly addNameRange     '1.4.0-rc.2',
+49 silly addNameRange     '1.4.0',
+49 silly addNameRange     '1.3.16',
+49 silly addNameRange     '1.4.1',
+49 silly addNameRange     '1.4.2',
+49 silly addNameRange     '1.3.17',
+49 silly addNameRange     '1.4.3',
+49 silly addNameRange     '1.4.4',
+49 silly addNameRange     '1.3.18',
+49 silly addNameRange     '1.4.5',
+49 silly addNameRange     '1.3.19',
+49 silly addNameRange     '1.4.6',
+49 silly addNameRange     '1.5.0-beta.0',
+49 silly addNameRange     '1.2.29',
+49 silly addNameRange     '1.3.20',
+49 silly addNameRange     '1.4.7' ] ]
+50 silly addNamed angular-touch@1.4.7
+51 verbose addNamed "1.4.7" is a plain semver version for angular-touch
+52 silly mapToRegistry name angular-touch
+53 silly mapToRegistry using default registry
+54 silly mapToRegistry registry https://registry.npmjs.org/
+55 silly mapToRegistry uri https://registry.npmjs.org/angular-touch
+56 verbose addRemoteTarball https://registry.npmjs.org/angular-touch/-/angular-touch-1.4.7.tgz not in flight; adding
+57 verbose addRemoteTarball [ 'https://registry.npmjs.org/angular-touch/-/angular-touch-1.4.7.tgz',
+57 verbose addRemoteTarball   '90349506cd60963db60613e934147165db6cbe39' ]
+58 info retry fetch attempt 1 at 5:26:21 PM
+59 info attempt registry request try #1 at 5:26:21 PM
+60 http fetch GET https://registry.npmjs.org/angular-touch/-/angular-touch-1.4.7.tgz
+61 http fetch 200 https://registry.npmjs.org/angular-touch/-/angular-touch-1.4.7.tgz
+62 silly fetchAndShaCheck shasum 90349506cd60963db60613e934147165db6cbe39
+63 verbose addTmpTarball /var/folders/jw/qdrcq66924d_hg6l4pcvz35w0000gp/T/npm-6386-c4d85b71/registry.npmjs.org/angular-touch/-/angular-touch-1.4.7.tgz not in flight; adding
+64 verbose addTmpTarball already have metadata; skipping unpack for angular-touch@1.4.7
+65 silly rollbackFailedOptional Starting
+66 silly rollbackFailedOptional Finishing
+67 silly runTopLevelLifecycles Starting
+68 silly runTopLevelLifecycles Finishing
+69 silly install printInstalled
+70 verbose stack Error: EACCES: permission denied, mkdir '/Users/dani/.npm/angular-touch/1.4.7'
+70 verbose stack     at Error (native)
+71 verbose cwd /Users/dani/www/cv-node/angular-express-seed/public
+72 error Darwin 14.0.0
+73 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "angular-touch"
+74 error node v4.0.0
+75 error npm  v3.3.6
+76 error path /Users/dani/.npm/angular-touch/1.4.7
+77 error code EACCES
+78 error errno -13
+79 error syscall mkdir
+80 error Error: EACCES: permission denied, mkdir '/Users/dani/.npm/angular-touch/1.4.7'
+80 error     at Error (native)
+80 error  { [Error: EACCES: permission denied, mkdir '/Users/dani/.npm/angular-touch/1.4.7']
+80 error   errno: -13,
+80 error   code: 'EACCES',
+80 error   syscall: 'mkdir',
+80 error   path: '/Users/dani/.npm/angular-touch/1.4.7',
+80 error   parent: 'application-name' }
+81 error Please try running this command again as root/Administrator.
+82 verbose exit [ -13, true ]

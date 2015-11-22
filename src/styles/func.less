@@ -1,0 +1,65 @@
+.bg_cover (@img) {
+	background-image: url(@img);
+	background-repeat: no-repeat;
+	background-position: center;
+    background-size: cover;
+}
+.full_screen (@zindex) {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	z-index: @zindex;
+}
+
+.transit (@prop, @time) {
+	transition: @prop @time @app_transition_type;
+    -moz-transition: @prop @time @app_transition_type;
+    -webkit-transition: @prop @time @app_transition_type;
+}
+
+	
+
+.abs_pos (@t, @r, @b, @l, @w, @h, @z){
+	display: block;
+	position: absolute;
+	top: @t;
+	right: @r;
+	bottom: @b;
+	left: @l;
+	width: @w;
+	height: @h;
+	z-index: @z;
+}
+.round (@val) {
+	width: @val;
+    height: @val;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+}
+.scale (@val) {
+	transform: scale(@val);
+    -webkit-transform: scale(@val);
+}
+.rotate (@deg) {
+	transform: rotate(@deg);
+    -webkit-transform: rotate(@deg);
+}
+.opaque (@val, @ieval) {
+	opacity: @val;
+    filter: alpha(opacity=@ieval);
+}
+.t_delay (@time) {
+	-webkit-transition-delay: @time;
+    transition-delay: @time;
+}
+
+.floated (@direction, @w) {
+	float: @direction;
+	width: @w;
+}
+.centered_h (@mtop, @mbottom) {
+	margin: @mtop auto @mbottom;
+}

@@ -1,0 +1,72 @@
+body {
+    font-family: Tahoma,omnes-pro,sans-serif;
+    font-size: 0.7em;
+}
+
+section {
+    padding: 0;
+    clear: both;
+}
+
+h2 {
+    padding: 6px 0;
+}
+
+h3 {
+        padding: 12px 0;
+}
+
+p {
+    padding: 4px 0;
+    line-height: 2em;
+    .no_float;
+    color: @color_grey_darkest;
+}
+
+ul {
+    padding: 8px 0;
+}
+
+li {
+    padding: 2px 0;
+    font-size: 0.8em;
+}
+
+.fa-github:before {
+    padding-right: 12px;
+}
+
+
+.container {
+    border-bottom: 2px dashed @color_black;
+    .full_w;
+    padding: 0 55px;
+    &.single-inst {
+        .no_border;
+        margin-top: 20px;
+    }
+}
+
+.first-cont {
+    border-top: 2px dashed @color_black;
+}
+
+section {
+    padding: 0;
+
+    &.intro {
+         .container{
+            .no_border;
+            padding-bottom: 50px;
+            border-bottom: 2px dashed  @color_black;
+        }
+
+        p {
+            font-size: 1.9em;
+            color: @color_white;
+            padding: 12px;
+            background: @color_blue_dark;
+            margin: 29px 0px;
+        }    
+    }
+}

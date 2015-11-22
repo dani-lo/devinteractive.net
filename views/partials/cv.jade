@@ -1,0 +1,68 @@
+div(class="bg", devint-scroll-position)
+div(class="devint")
+	header(id="devint-head", class="jobs-header menu-container", ng-class="{loaded: !isloading, isdone:isdone}", devint-affix)
+		div(class="menu-options", ng-class="{openmenu : menu, cmsactive: cmsactive}")
+			a(devint-suggest, class="optionsmenu optionsmenu-close devint-suggest", ng-click="hideMenu()")
+				i(class="fa fa-times")
+				span(data-orient="left", data-tip="close")
+			a(devint-suggest, class="optionsmenu optionsmenu-logout devint-suggest", ng-click="logout()")
+				i(class="fa fa-sign-out")
+				span(data-orient="right", data-tip="logout")
+			a(devint-suggest, class="optionsmenu optionsmenu-cms devint-suggest", ng-click="cms()")
+				i(class="fa fa-arrow-up")
+				span(data-orient="right", data-tip="cms")
+			div(class="cms")
+				div(class="container single-inst")
+					div(class="row")
+						//
+						div(class="col-md-3 di-col-xs-0 col-sm-2 col-lg-4")
+						div(class="col-md-6 di-col-xs-12 col-sm-8  col-lg-4 form-wrapper", ng-class="{isready: ready}")
+							div(class="local-login devint-form")
+								h2 Add User
+								form(name="loginlocal", method="POST", ng-submit="postLogin()")
+									input(type="email", name="email", ng-model="user.email", required, placeholder="Email")
+									input(type="password", name="password", ng-model="user.password", required, placeholder="Password")
+									input(type="submit", value="add user", class="button")
+						div(class="col-md-3 di-col-xs-0 col-sm-2 col-lg-4")
+		h1 devinteractive.net
+		a(devint-suggest, id="nav-back", class="devint-suggest", href="/app/home")
+			i(class="fa fa-arrow-circle-left")
+			span(data-orient="right", data-tip="go back")
+		a(devint-suggest, id="nav-menu", ng-click="showMenu()", class="devint-suggest")
+			i(class="fa fa-bars")
+			span(data-orient="left", data-tip="menu")
+		div(id="devint-loader", ng-show="isloading")
+			p(class="spinner")
+				i(class="fa fa-circle-o-notch fa-spin")
+	section(class="intro cv-wrap")
+		div(class="section-wrapper pos-item", ng-class="{zoom: uiready}",  ng-class-odd="'alt'", data-ng-repeat="pos in experience")
+			div(class="container pos-container", ng-class="{interloop: $index > 0 && $index % 3 === 0}")
+				div(class="pos")
+					h2(class="pos-title") {{pos.cname}}
+					h3(class="pos-desc", devint-ellipsis, data="pos.cdesc") {{pos.cdesc}}
+					h4 {{pos.date}}
+					a(class="plus-pos", ng-class="{orient_l: $index % 2 === 0}", ng-click="showPos(pos._id)", href="#_")
+						i(class="fa fa-plus-square") 
+	div(class="current-position", ng-class="{isactivepos: isactivepos}")
+		a(devint-suggest, class="optionpos-close devint-suggest", ng-click="hidePos()", href="#_")
+			i(class="fa fa-times")
+			span(data-orient="left", data-tip="close")
+		div(class="curr-pos-container")
+			div(class="curr-pos-meta")
+				h2 {{currpos.cname}}
+				h3 {{currpos.cdesc}}
+				p
+					{{currpos.date}}
+			div(class="curr-pos-details curr-pos-text")
+				h2 {{currpos.title}}
+				h3 {{currpos.tech}}
+				ul
+					li(ng-repeat="task in currpos.description") {{task}}
+			div(class="curr-pos-details curr-pos-links")
+				ul
+					li(ng-repeat="url in currpos.urls")
+						span(class="l-url", ng-show="url.l")  
+							a(ng-href="{{url.l}}", target="_blank") {{url.l}}
+						span(class="w-url", ng-show="url.w")  {{url.w}}
+							
+								

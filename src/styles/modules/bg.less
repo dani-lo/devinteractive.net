@@ -1,0 +1,45 @@
+html {
+	body {
+		background: @color_transp;
+	}
+	.devint {
+		    position: relative;
+	}
+	div.bg {
+		overflow: hidden; // added for pseudo-element
+		position: relative; // added for pseudo-element
+
+		&::before {
+		    content: ' ';
+		    .full_screen(-1);
+		    .bg_cover(@img_mountains);
+		    will-change: transform; // creates a new paint layer
+		 }
+	}
+}
+
+.section-wrapper {
+	&.alt {
+		.container.job-container {
+			background: @color_grey_lightest;
+		}
+	}
+	.container {
+		background: @color_transp;
+		&.job-container {
+			background: @color_white;
+		}
+		&.job-intro {
+			padding-top: @margin_huge * 2;
+		}
+		&.interloop {
+        	background: @color_transp!important;
+    	}
+	}
+	&:first-child, &:last-child {
+		.interloop {
+        	background: @color_grey_lightest;
+
+    	}
+	}
+}

@@ -1,0 +1,54 @@
+.loader-hold {
+	background: @color_grey_lightest;
+  .full_screen(12222);
+	.transit(opacity, 0.5s);
+  &.isready {
+  	.opaque(0, 0);
+  }
+  &.isdone {
+    display: none;
+  }
+}
+#devint-loader {
+    
+    &.loaded {
+        display: none;
+    }
+
+    &.removed {
+        display: none;
+    }
+
+    #preloading-p {
+        text-align: center;
+        margin-top: 100px;
+        font-size: 4em;
+        color: @color_white;
+    }
+
+    .img-preloader-monitor {
+        color: @color_white;     
+        text-align: center;     
+        font-size: 2em;     
+        .opaque(1, 100);
+        width: 75%;     
+        margin: 12px auto;     
+        height: 40px;
+        border: 1px solid @color_white;
+    }
+
+    #img-load-prog{
+        width: 0;
+        margin: 0;
+        height: 40px;
+        background-color: @color_white;
+        .transit(width, .25s);
+    }
+
+    .spinner {
+        color: @color_white;
+        font-size: 12em;
+        text-align: center;
+        margin-top: 11%;
+    }
+}

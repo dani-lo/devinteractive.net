@@ -1,0 +1,112 @@
+.form-wrapper {
+    .transit(all, .25s);
+    .opaque(0, 0);
+    &.isready {
+        .opaque(1, 100);
+    }
+}
+.devint-form {
+
+    .centered_h(auto, auto);
+
+    width: 100%;
+    padding: 25px 15px 25px 10px;
+
+    &.social-login {
+        border-top: 1px solid #989898;
+        margin-top: 20px;
+        padding-top: 29px;
+    }
+    .btn-social>:first-child{
+        .centered_h(auto, auto);
+        position: relative;
+        width: 100%;
+    }
+
+
+    .btn-social.btn-lg>:first-child {
+        line-height: 45px;
+        width: 100%;
+        font-size: 1.2em;
+    }
+
+    .btn-group-lg>.btn, .btn-lg {
+        padding: 16px !important;
+    }
+
+    h1 {
+        font-size: 25px;
+        padding: 0px 0px 10px 40px;
+        display: block;
+        border-bottom:1px solid @color_grey_lightish;
+        margin: -10px -15px 30px -10px;;
+        color: @color_grey_darkest;
+
+        &>span {
+            display: block;
+            font-size: 11px;
+        }
+    }
+    label {
+        display: block;
+        margin: 0px;
+    
+        &>span {
+            .floated(left, 20%);
+            text-align: right;
+            padding-right: 10px;
+            margin-top: 10px;
+            color: @color_grey_darkest;
+        }
+    }
+    input[type="text"], input[type="email"], input[type="password"],  textarea,  select {
+        
+        border: 1px solid @color_grey_lightest;
+        .box_shadow;
+        color: @color_grey_lightish;
+        .centered_h(15px, 15px);
+
+        outline: 0 none;
+        padding: 11px 8px 11px 8px;
+        width: 100%;
+        font-size: 3em;
+    }
+    input:-webkit-autofill {
+        background-color: @color_white !important;
+        -webkit-box-shadow: 0 0 0px 1000px white inset;
+    }
+    
+
+    .button {
+        background: @color_grey_redded;
+        border: none;
+        padding: 15px 35px 15px 35px;
+        color: @color_white;
+        border-radius: 3px;
+        /* text-shadow: 1px 1px 1px #9e3f3f; */
+        cursor: pointer;
+        display: block;
+        .centered_h(32px, 0);
+        .opaque(0.5, 50);
+        font-size: 3em;
+        
+        pointer-events: none;
+    
+        &:hover {
+            background: @color_blue_light;
+        }
+    }
+
+    .ng-valid {
+        .button {
+            .opaque(1, 100);
+            pointer-events: all;
+        }
+    }
+    /* Validation */
+    input.ng-touched {
+        &.ng-invalid {
+            background: @color_red_dim;
+        }
+    }
+}
