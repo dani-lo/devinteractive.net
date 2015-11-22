@@ -1,82 +1,13 @@
-# Angular Express Seed
+# Devinteractive.net
 
-Start an awesome app with AngularJS on the front, Express + Node on the back. This project is an
-application skeleton for a typical [AngularJS](http://angularjs.org/) web app for those who want
-to use Node to serve their app.
-
-The seed contains angular libraries, test libraries and a bunch of scripts all preconfigured for
-instant web development gratification. Just clone the repo (or download the zip/tarball) and
-you're ready to develop your application.
-
-The seed app shows how to wire together Angular client-side components with Express on the server.
-It also illustrates writing angular partials/views with the Jade templating library.
-
-_Note: Although Jade supports interpolation, you should be doing that mostly on the client. Mixing
-server and browser templating will convolute your app. Instead, use Jade as a syntactic sugar for
-HTML, and let AngularJS take care of interpolation on the browser side._
-
-## How to use angular-express-seed
-
-Clone the angular-express-seed repository, run `npm install` to grab the dependencies, and start hacking!
-
-### Running the app
-
-Runs like a typical express app:
-
-    node app.js
-
-### Running tests
-
-Coming soon!
-
-### Receiving updates from upstream
-
-Just fetch the changes and merge them into your project with git.
-
-
-## Directory Layout
-    
-    app.js              --> app config
-    package.json        --> for npm
-    public/             --> all of the files to be used in on the client side
-      css/              --> css files
-        app.css         --> default stylesheet
-      img/              --> image files
-      js/               --> javascript files
-        app.js          --> declare top-level app module
-        controllers.js  --> application controllers
-        directives.js   --> custom angular directives
-        filters.js      --> custom angular filters
-        services.js     --> custom angular services
-        lib/            --> angular and 3rd party JavaScript libraries
-          angular/
-            angular.js            --> the latest angular js
-            angular.min.js        --> the latest minified angular js
-            angular-*.js          --> angular add-on modules
-            version.txt           --> version number
-    routes/
-      api.js            --> route for serving JSON
-      index.js          --> route for serving HTML pages and partials
-    views/
-      index.jade        --> main page for app
-      layout.jade       --> doctype, title, head boilerplate
-      partials/         --> angular view partials (partial jade templates)
-        partial1.jade
-        partial2.jade
-
-
-
-## Example App
-
-A simple [blog](https://github.com/btford/angular-express-blog) based on this seed.
-
-
-## Contact
-
-For more information on AngularJS please check out http://angularjs.org/
-For more on Express and Jade, http://expressjs.com/ and http://jade-lang.com/ are
-your friends.
-
-## License
-MIT
-# devinteractive.net
+### About
+THis is a copy of the repository currently powering [devinteractive.herokuapp.com](https://devinteractive.herokuapp.com)
+### Notes for reviewers
+Due to the personal nature of this work, a few aspects have not been dealt with properly (i.e as would have been in a commercial approach). Please see below a list of refactors and improvements this repo should undergo, consider these as caveats when evaluating the whole repo as a job
+* css, Typography: The vast majority of rules related to font size and line-height should be refactored to follow a more structured approach (i.e being included via mixins). THis is currently under way
+* css, Layout: Similarly, the layout of elements (grid, margins, padding) should be refactored through mixins and functions to ensure a better management of layout
+* TDD: All Unit tests are working and can be run via Karma. They only relate to the main functionality within Services and Controllers - these being the most critical and bug prone parts of the app
+* BDD: Protractor tests were originally written (and passed) but were then left behind, I am in the process of rewriting them
+* Angular Services: These could probably do with a bit more logic taken away from the controllers. In general this app does not need a lot of logic / calculations, so that is ok in this particular case
+* Automation: The Grunt tasks could probably be more granular and configured. Again, this is due to me just setting them up and then being happy with running them as all is working well
+* Angular Controllers (app design): Some logic should be decoupled in certain areas and refactored to its own controller(s). This is particularly true for the Header Controller - its logic being duplicated across the different page controllers that make use of the Header menu functionality. THis should be refactored to a Menu controller and the part which need to be shared with other controllers made available through some form of Event management (subscribers)
