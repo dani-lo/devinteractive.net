@@ -10,20 +10,20 @@ var express = require("express"),
     morgan = require("morgan"),
     views = require("./routes/views"),
     api = require("./routes/api"),
-    auth = require("./routes/auth"),
     http = require("http"),
-    path = require("path");
+    path = require("path"),
+    appConf = require("./local_modules/conf"),
+    appUtil = require("./local_modules/util");
 
 var mongo = require("mongodb"),
     monk = require("monk"),
-    db = monk("mongodb://dani:danidev@ds045684.mongolab.com:45684/devinteractive");
+    db = monk(appConf.dbconn);
 
 var passport = require("passport"),
     GithubStrategy = require("passport-github").Strategy,
     LocalStrategy   = require("passport-local").Strategy;
 
 var app = module.exports = express();
-
 
 /**
  * Configuration
@@ -40,7 +40,7 @@ app.use(flash());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(session({
-  secret: "12woKjh7343ww02_P3n22xyT9",
+  secret: appConf.secret,
   cookie: { maxAge: 60000 * 60 },
   resave: false,
   saveUninitialized: true
@@ -53,39 +53,37 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Make the db handle accessible to the routes
-app.use(function (req,res,next) {
+app.use(function(req,res,next){
     "use strict";
-
     req.db = db;
     next();
 });
 
 passport.use("github-login", new GithubStrategy({
-  clientID: "21abb346a3f57f99b2ad",
-  clientSecret: "45d0e764fab12fd8b98cf7ec57cf5d1e0741ffd0",
-  callbackURL: "https://devinteractive.herokuapp.com/auth/callback"
-}, function (accessToken, refreshToken, profile, done) {
-  //
-  "use strict";
-  
-  done(null, {
-    accessToken: accessToken,
-    profile: profile
-  });
+  clientID: appConf.auth.github.clientID,
+  clientSecret: appConf.auth.github.clientSecret,
+  callbackURL: appConf.auth.github.callbackURL
+}, function(accessToken, refreshToken, profile, done){
+    "use strict";
+    done(null, {
+      accessToken: accessToken,
+      profile: profile
+    });
 }));
 
 passport.use("local-login", new LocalStrategy({
+        // by default, local strategy uses username and password, we will override with email
         usernameField : "email",
         passwordField : "password",
-        passReqToCallback : true
+        passReqToCallback : true // allows us to pass back the entire request to the callback
     },
-    function(req, email, password, done) {
+    function(req, email, password, done) { // callback with email and password from our form
       //
       "use strict";
 
       var collection = req.db.get("users");
 
-      collection.find({$and:[{"email": email}, {"password": password}]}, {},function(e, docs){
+      collection.find(appConf.mquery.userByEmailPass(email, password), {},function(e, docs){
         //
         if (docs.length === 1) {
         
@@ -105,21 +103,24 @@ passport.use("local-login", new LocalStrategy({
 
 
 passport.serializeUser(function(user, done) {
-  //
+  // for the time being tou can serialize the user 
+  // object {accessToken: accessToken, profile: profile }
+  // In the real app you might be storing on the id like user.profile.id 
   "use strict";
-  
   done(null, user);
 });
 
 passport.deserializeUser(function(user, done) {
-  //
+  // If you are storing the whole user on session we can just pass to the done method, 
+  // But if you are storing the user id you need to query your db and get the user 
+  //object and pass to done() 
   "use strict";
-
   done(null, user);
 });
 
 var env = process.env.NODE_ENV || "development";
 
+// development only
 if (env === "development") {
   app.use(errorhandler());
 }
@@ -127,19 +128,7 @@ if (env === "development") {
 // production only
 if (env === "production") {
   // TODO
-  console.log("production");
-}
-
-function ensureAuthenticated(req, res, next) {
-  //
-  "use strict";
-
-  if (req.isAuthenticated()) {
-
-    return next();
-  } else {
-    res.redirect("/login");
-  }
+  console.log("production")
 }
 /**
  * Routes
@@ -155,7 +144,6 @@ app.get("/login/github", passport.authenticate("github-login", {
 app.post("/login/local", function(req, res, next) {
   //
   "use strict";
-
   passport.authenticate("local-login", function(err, user, info) {
     
     var msg = {};
@@ -188,13 +176,14 @@ app.get("/auth/callback", function (req, res, next) {
 
 app.get("/partials/:name", views.partials);
 
-//
+// JSON API
 app.get("/api/jobs", api.jobs);
-//
+// JSON API
 app.get("/api/experience", api.experience);
-//
+// redirect all others to the index (HTML5 history)
 app.get("/login", views.login);
 
+// redirect all others to the index (HTML5 history)
 app.get("/logout", function (req, res) {
   "use strict";
   req.logout();
@@ -202,8 +191,7 @@ app.get("/logout", function (req, res) {
   res.redirect("/login");
 });
 
-app.get("/app*", ensureAuthenticated, views.index);
-
+app.get("/app*", appUtil.ensureAuthenticated, views.index);
 app.get("/", function (req, res) {
   "use strict";
   res.redirect("/app");
@@ -214,6 +202,5 @@ app.get("/", function (req, res) {
 
 http.createServer(app).listen(app.get("port"), function () {
   "use strict";
-
   console.log("Express server listening on port " + app.get("port"));
 });

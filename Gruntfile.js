@@ -20,7 +20,7 @@ module.exports = function(grunt) {
     es6transpiler: {
         dist: {
             files: {
-                'app.es6.js': 'app.js'
+                'app.js': 'app.es6.js'
             }
         }
     },

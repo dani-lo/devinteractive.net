@@ -1,46 +1,46 @@
 /**
  * Module dependencies
  */
-var express = require('express'),
-    session = require('express-session'),
-    bodyParser = require('body-parser'),
-    flash = require('express-flash'),
-    methodOverride = require('method-override'),
-    errorhandler = require('errorhandler'),
-    morgan = require('morgan'),
-    views = require('./routes/views'),
-    api = require('./routes/api'),
-    auth = require('./routes/auth'),
-    http = require('http'),
-    path = require('path');
+var express = require("express"),
+    session = require("express-session"),
+    bodyParser = require("body-parser"),
+    flash = require("express-flash"),
+    methodOverride = require("method-override"),
+    errorhandler = require("errorhandler"),
+    morgan = require("morgan"),
+    views = require("./routes/views"),
+    api = require("./routes/api"),
+    http = require("http"),
+    path = require("path"),
+    appConf = require("./local_modules/conf"),
+    appUtil = require("./local_modules/util");
 
-var mongo = require('mongodb'),
-    monk = require('monk'),
-    db = monk('mongodb://dani:danidev@ds045684.mongolab.com:45684/devinteractive');
+var mongo = require("mongodb"),
+    monk = require("monk"),
+    db = monk(appConf.dbconn);
 
-var passport = require('passport'),
-    GithubStrategy = require('passport-github').Strategy,
-    LocalStrategy   = require('passport-local').Strategy;
+var passport = require("passport"),
+    GithubStrategy = require("passport-github").Strategy,
+    LocalStrategy   = require("passport-local").Strategy;
 
 var app = module.exports = express();
-
 
 /**
  * Configuration
  */
 
 // all environments
-app.set('port', process.env.PORT || 3000);
-app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
-app.use(morgan('dev'));
+app.set("port", process.env.PORT || 3000);
+app.set("views", __dirname + "/views");
+app.set("view engine", "jade");
+app.use(morgan("dev"));
 app.use(bodyParser());
 app.use(methodOverride());
 app.use(flash());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(session({
-  secret: '12woKjh7343ww02_P3n22xyT9',
+  secret: appConf.secret,
   cookie: { maxAge: 60000 * 60 },
   resave: false,
   saveUninitialized: true
@@ -54,32 +54,36 @@ app.use(passport.session());
 
 // Make the db handle accessible to the routes
 app.use(function(req,res,next){
+    "use strict";
     req.db = db;
     next();
 });
 
-passport.use('github-login', new GithubStrategy({
-  clientID: '21abb346a3f57f99b2ad',
-  clientSecret: '45d0e764fab12fd8b98cf7ec57cf5d1e0741ffd0',
-  callbackURL: 'https://devinteractive.herokuapp.com/auth/callback'
+passport.use("github-login", new GithubStrategy({
+  clientID: appConf.auth.github.clientID,
+  clientSecret: appConf.auth.github.clientSecret,
+  callbackURL: appConf.auth.github.callbackURL
 }, function(accessToken, refreshToken, profile, done){
-  done(null, {
-    accessToken: accessToken,
-    profile: profile
-  });
+    "use strict";
+    done(null, {
+      accessToken: accessToken,
+      profile: profile
+    });
 }));
 
-passport.use('local-login', new LocalStrategy({
+passport.use("local-login", new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
-        usernameField : 'email',
-        passwordField : 'password',
+        usernameField : "email",
+        passwordField : "password",
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
     function(req, email, password, done) { // callback with email and password from our form
       //
-      var collection = req.db.get('users');
+      "use strict";
 
-      collection.find({$and:[{"email": email}, {"password": password}]}, {},function(e, docs){
+      var collection = req.db.get("users");
+
+      collection.find(appConf.mquery.userByEmailPass(email, password), {},function(e, docs){
         //
         if (docs.length === 1) {
         
@@ -90,7 +94,7 @@ passport.use('local-login', new LocalStrategy({
           });
           
         } else {
-          return done(null, false, req.flash('error', 'No user found or wrong password.'));
+          return done(null, false, req.flash("error", "No user found or wrong password."));
         }
       });
       
@@ -102,6 +106,7 @@ passport.serializeUser(function(user, done) {
   // for the time being tou can serialize the user 
   // object {accessToken: accessToken, profile: profile }
   // In the real app you might be storing on the id like user.profile.id 
+  "use strict";
   done(null, user);
 });
 
@@ -109,44 +114,37 @@ passport.deserializeUser(function(user, done) {
   // If you are storing the whole user on session we can just pass to the done method, 
   // But if you are storing the user id you need to query your db and get the user 
   //object and pass to done() 
+  "use strict";
   done(null, user);
 });
 
-var env = process.env.NODE_ENV || 'development';
+var env = process.env.NODE_ENV || "development";
 
 // development only
-if (env === 'development') {
+if (env === "development") {
   app.use(errorhandler());
 }
 
 // production only
-if (env === 'production') {
+if (env === "production") {
   // TODO
-}
-
-function ensureAuthenticated(req, res, next) {
-  //
-  if (req.isAuthenticated()) {
-    return next();
-  } else {
-    res.redirect('/login');
-  }
-    // Return error content: res.jsonp(...) or redirect: 
+  console.log("production")
 }
 /**
  * Routes
  */
 
 // serve index and view partials
-app.get('/login/github', passport.authenticate('github-login', {
-    successRedirect: '/app',
-    failureRedirect: '/login',
+app.get("/login/github", passport.authenticate("github-login", {
+    successRedirect: "/app",
+    failureRedirect: "/login",
     failureFlash : true
   }));
 
-app.post('/login/local', function(req, res, next) {
+app.post("/login/local", function(req, res, next) {
   //
-  passport.authenticate('local-login', function(err, user, info) {
+  "use strict";
+  passport.authenticate("local-login", function(err, user, info) {
     
     var msg = {};
 
@@ -167,38 +165,42 @@ app.post('/login/local', function(req, res, next) {
   })(req, res, next);
 });
 
-app.get('/auth/callback', function (req, res, next) {
+app.get("/auth/callback", function (req, res, next) {
+    "use strict";
     next();
-  },passport.authenticate('github-login', {
-    successRedirect: '/app',
-    failureRedirect: '/error',
+  },passport.authenticate("github-login", {
+    successRedirect: "/app",
+    failureRedirect: "/error",
     failureFlash : true
   }));
 
-app.get('/partials/:name', views.partials);
+app.get("/partials/:name", views.partials);
 
 // JSON API
-app.get('/api/jobs', api.jobs);
+app.get("/api/jobs", api.jobs);
 // JSON API
-app.get('/api/experience', api.experience);
+app.get("/api/experience", api.experience);
 // redirect all others to the index (HTML5 history)
-app.get('/login', views.login);
+app.get("/login", views.login);
 
 // redirect all others to the index (HTML5 history)
-app.get('/logout', function (req, res) {
+app.get("/logout", function (req, res) {
+  "use strict";
   req.logout();
   req.session.destroy();
-  res.redirect('/login');
+  res.redirect("/login");
 });
 
-app.get('/app*', ensureAuthenticated, views.index);
-app.get('/', function (req, res) {
-  res.redirect('/app');
+app.get("/app*", appUtil.ensureAuthenticated, views.index);
+app.get("/", function (req, res) {
+  "use strict";
+  res.redirect("/app");
 });
 /**
  * Start Server
  */
 
-http.createServer(app).listen(app.get('port'), function () {
-  console.log('Express server listening on port ' + app.get('port'));
+http.createServer(app).listen(app.get("port"), function () {
+  "use strict";
+  console.log("Express server listening on port " + app.get("port"));
 });
